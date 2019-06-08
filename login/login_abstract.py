@@ -3,13 +3,13 @@
 from abc import ABC, abstractmethod
 
 class LoginGateway(ABC):
-    """This is an interface that provides the sub classes will inherit from,
+    """This is an interface that the sub classes will inherit from,
         to implement the login methods for the login gateways defined. """
 
     
     def __init__(self):
         super().__init__()
 
-
+    @abstractmethod
     def processLogin(self):
         pass
