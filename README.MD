@@ -2,3 +2,4 @@ These are simple programs showing the creational design patterns implemented usi
 
 The following creational patterns have been added:
     Factory Method
+    Abstract Factory
