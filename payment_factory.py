@@ -1,6 +1,7 @@
 from payment.payment_gateways import Esewa, Khalti, Paypal
+from abstract_factory import AbstractFactory
 
-class PaymentFactory():
+class PaymentFactory(AbstractFactory):
     """ This class contains the method that returns the objects of the payment gateways defined.
         This allows for dynamic object creation by providing an interface for calling the 
         objects as required. """
@@ -21,3 +22,7 @@ class PaymentFactory():
 
         return None
     
+    def getLogin(self):
+        """ Inherited from the abstract parent class AbstractFactory.
+            Has to be defined otherwise this class will also be abstract. """
+        pass
