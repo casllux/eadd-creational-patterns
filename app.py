@@ -8,7 +8,7 @@ def payment():
 
     Factory = FactoryProducer.getFactory('payment')
 
-    payment_method = str(input("Enter the payment gateway: ")).lower()
+    payment_method = str(input("Enter the payment gateway(Esewa, Khalti, Paypal): ")).lower()
 
     try:
         payment = Factory.getPayment(payment_method)
@@ -24,7 +24,7 @@ def login():
 
     Factory = FactoryProducer.getFactory('login')
            
-    login_method = str(input("Enter the login gateway: ")).lower()
+    login_method = str(input("Enter the login gateway(Google, Facebook, Email): ")).lower()
 
     try:
         login = Factory.getLogin(login_method)
