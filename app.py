@@ -1,4 +1,5 @@
 from factory_producer import FactoryProducer
+from logger import Logger
 
 
 def payment():
@@ -8,12 +9,16 @@ def payment():
 
     Factory = FactoryProducer.getFactory('payment')
 
+    logger1 = Logger()
+    logger1.info('Inside the payment method...')
+
     payment_method = str(input("Enter the payment gateway(Esewa, Khalti, Paypal): ")).lower()
 
     try:
         payment = Factory.getPayment(payment_method)
         print(payment.processPayment())
     except(AttributeError):
+        logger1.error('Payment error...')
         print("No such payment portal!")
 
 
@@ -24,12 +29,16 @@ def login():
 
     Factory = FactoryProducer.getFactory('login')
            
+    logger2 = Logger()
+    logger2.info('Inside the login method...')
+    
     login_method = str(input("Enter the login gateway(Google, Facebook, Email): ")).lower()
 
     try:
         login = Factory.getLogin(login_method)
         print(login.processLogin())
     except(AttributeError):
+        logger2.error('Login error...')
         print("No such login portal!")
 
 
@@ -43,6 +52,10 @@ def main():
     #     print(login.processLogin())
     # except(AttributeError):
     #     print("No such login portal!")
+
+    logger = Logger()
+    logger.info('Beginning of main...')
+
     waiting = True
     while waiting:
         print("\n1. Payment")
@@ -64,7 +77,7 @@ def main():
             print('No such choice!')
 
     print("Finished...")
-
+    logger.info('End of main...')
 
 
 
